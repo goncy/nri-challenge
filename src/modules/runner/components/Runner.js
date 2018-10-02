@@ -10,8 +10,6 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   font-size: 16px;
-  cursor: pointer;
-  pointer-events: ${({status}) => (status === "init" ? "inherit" : "none")};
 
   .description {
     margin-left: 8px;
@@ -40,7 +38,7 @@ const Runner = ({tests}) => {
       {[init || [], running || [], passed || [], failed || []]
         .flat()
         .map(({status, description}, index) => (
-          <Row key={index} status={status}>
+          <Row key={index}>
             <StatusIcon status={STATUSES[status]} />
             <span className="description">{description}</span>
           </Row>
